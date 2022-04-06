@@ -59,4 +59,9 @@ class SolutionTest {
     void shouldReturnActualTreeCountGivenAnUpBalanceTree() {
         assertEquals( 4,solution.countNodesInTree(node13));
     }
+
+    @Test()
+    void shouldReturn12CountGivenRule() {
+        assertEquals( 12,solution.countNodesInTree(root));
+    }
 }
