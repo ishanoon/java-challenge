@@ -61,7 +61,7 @@ class SolutionTest {
     }
 
     @Test()
-    void shouldReturn12CountGivenRule() {
+    void shouldReturn12CountGivenRoot() {
         assertEquals( 12,solution.countNodesInTree(root));
     }
 }
