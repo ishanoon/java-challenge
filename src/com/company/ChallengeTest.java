@@ -6,6 +6,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -225,6 +226,27 @@ class ChallengeTest {
         mylist.add("g");
 
         assertTrue(ch.isPalindrome(mylist));
+    }
+
+
+    @Test
+    void flattenTest(){
+        List<List<Integer>> listOfLists = new ArrayList<>();
+        listOfLists.add(Arrays.asList(1,2,3,4,5));
+        listOfLists.add(Arrays.asList(10,20,30,40));
+        listOfLists.add(Arrays.asList(100,200,300,400));
+
+        List<Integer> results = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 10, 20, 30, 40, 100, 200, 300, 400));
+
+        assertEquals(ch.flattenList(listOfLists),results);
+
+    }
+
+    @Test
+    void removeDuplicatesTest(){
+        List<String> input = new ArrayList(Arrays.asList('a','a','a','a','b','c','c','a','a','d','e','e','e','e'));
+        List<String> results = new ArrayList(Arrays.asList('a','b','c','a','d','e'));
+        assertEquals(ch.removeDuplicatesFromList(input), results);
     }
 
 }

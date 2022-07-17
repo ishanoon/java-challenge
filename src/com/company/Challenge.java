@@ -2,6 +2,7 @@ package com.company;
 
 import javax.swing.tree.TreeNode;
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * This challenge is from https://code-exercises.com/
@@ -301,5 +302,35 @@ public class Challenge {
         }
         return false;
     }
+
+    /***
+     * 1.07 (**) Flatten a nested list structure.
+     */
+
+    <T> List<T> flattenList(List<List<T>> list){
+        return list.stream()
+                .flatMap(List::stream)
+                .collect(Collectors.toList());
+    }
+
+    /**
+     * 1.08 (**) Eliminate consecutive duplicates of list elements.
+     * If a list contains repeated elements they should be replaced with a single copy of the element.
+     * The order of the elements should not be changed.
+     */
+
+    <T> List<T> removeDuplicatesFromList(List<T> list){
+        List<T> results = new ArrayList<>();
+        int previous = 0;
+        for(int i =1; i < list.size(); i++){
+            if(list.get(previous) != list.get(i)){
+                results.add(list.get(previous));
+            }
+            previous++;
+        }
+        return results;
+    }
+
+
 
 }
